@@ -1,0 +1,9 @@
+{
+  "name": "vakkertech",
+  "version": "1.0.0",
+  "description": "The VakkerTech.com WordPress theme",
+  "main": "index.js",
+  "repository": "https://github.com/sc0z/VakkerTech",
+  "author": "Stephen Scoza",
+  "license": "MIT"
+}
