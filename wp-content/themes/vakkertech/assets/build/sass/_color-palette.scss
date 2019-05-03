@@ -1,0 +1,23 @@
+// Branding for VakkerTech - used generated color palette:
+//   Coolors Exported Palette - coolors.co/253031-315659-2978a0-bcab79-c6e0ff 
+
+// HSL 
+$color1: hsla(185%, 14%, 17%, 1);
+$color2: hsla(185%, 29%, 27%, 1);
+$color3: hsla(200%, 59%, 39%, 1);
+$color4: hsla(45%, 33%, 61%, 1);
+$color5: hsla(213%, 100%, 89%, 1);
+
+// RBG
+$color1: rgba(37, 48, 49, 1); //BLACK LEATHER JACKET
+$color2: rgba(49, 86, 89, 1); //DARK SLATE GRAY
+$color3: rgba(41, 120, 160, 1); //LAPIS LAZULI
+$color4: rgba(188, 171, 121, 1); // MISTY MOSS
+$color5: rgba(198, 224, 255, 1); // PERIWINKLE
+
+// Branding
+$color-primary: $color3;
+$color-secondary: $color2;
+$color-dark: $color1;
+$color-light: $color5;
+$color-highlight: $color4;

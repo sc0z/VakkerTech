@@ -14,46 +14,16 @@
 
 get_header();
 ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
-
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+    <main class="vt-page__content">
+        <div class="jumbotron">
+            <h1><?php bloginfo('title'); ?></h1>
+            <p>
+                <p>Vakker Tech is a small, family-owned and family-run business located in Newtown, PA.</p>
+                <p>We started making websites professionally in 2011. We are growing our knowledge-base everyday, and are not afraid to work with the latest cutting-edge technology stacks. We currently serve local businesses in Bucks County, Montgomery County, Philadelphia County in PA, along with New Jersey, New York, and Delaware.</p>
+                <p>Feel free to contact us at anytime for an estimate on your project. You’ll find that our rates are very reasonable; we enjoy what we do!</p>
+                <p>We will work with you to transform your great idea into a real, working website and/or application using the technologies that make sense.</p>
+            </p>
+        </div>
+    </main>
 <?php
-get_sidebar();
 get_footer();

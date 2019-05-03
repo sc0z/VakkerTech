@@ -16,6 +16,17 @@ if ( ! function_exists( 'vakkertech_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function vakkertech_setup() {
+		// Setup JavaScript Bundle
+		wp_enqueue_script( 
+			'vakkertech-js', 
+			get_template_directory_uri() . '/assets/dist/js/bundle.js', 
+			[
+				'jquery'
+			],
+			time(),
+			true
+		);
+
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.

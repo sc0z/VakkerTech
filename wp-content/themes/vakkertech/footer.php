@@ -10,11 +10,8 @@
  */
 
 ?>
-
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
+	<footer class="vt-page__footer">
+		<div class="vt-page__copyright">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'vakkertech' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
@@ -26,9 +23,9 @@
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'vakkertech' ), 'vakkertech', '<a href="https://vakkertech.com">Stephen Scoza</a>' );
 				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+		</div>
+	</footer>
+</div><!-- .vt-wrapper -->
 
 <?php wp_footer(); ?>
 

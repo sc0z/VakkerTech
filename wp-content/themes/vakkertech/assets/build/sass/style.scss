@@ -1,0 +1,53 @@
+/*
+Theme Name: vakkertech
+Theme URI: https://vakkertech.com
+Author: Stephen Scoza (sc0z)
+Author URI: https://vakkertech.com
+Description: Custom WordPress theme for Vakker Tech Dot Com - a Bucks County, PA Web Development Company
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: vakkertech
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+
+
+// Bootstrap 4 Overrides
+@import "bootstrap-variables";
+// Bootstrap 4 Sass (Complete)
+@import "~bootstrap/scss/bootstrap";
+// VakkerTech color palette/branding colors
+@import "color-palette";
+
+html,
+body {
+    font-size: 1rem;
+}
+
+// VakkeTech Page <body> element
+.vt-page{
+    // Wrapper for all elements inside of vt-page
+    &__wrapper{
+
+    }
+    &__header{
+
+    }
+    &__content{
+
+    }
+
+    &__footer{
+
+    }
+}
+
+.vt-nav{
+    display: block;
+    width: 100%;
+    height: 2rem;
+
+    &--main{
+
+    }
+}

@@ -16,43 +16,35 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
+	<link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/vakkertech/assets/build/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/wp-content/themes/vakkertech/assets/build/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="194x194" href="/wp-content/themes/vakkertech/assets/build/icons/favicon-194x194.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/wp-content/themes/vakkertech/assets/build/icons/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/wp-content/themes/vakkertech/assets/build/icons/favicon-16x16.png">
+	<link rel="manifest" href="/wp-content/themes/vakkertech/assets/build/icons/site.webmanifest">
+	<link rel="mask-icon" href="/wp-content/themes/vakkertech/assets/build/icons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/wp-content/themes/vakkertech/assets/build/icons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="msapplication-TileImage" content="/wp-content/themes/vakkertech/assets/build/icons/mstile-144x144.png">
+	<meta name="msapplication-config" content="/wp-content/themes/vakkertech/assets/build/icons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'vakkertech' ); ?></a>
+<body <?php body_class('vt-page'); ?>>
+	<div class="vt-page__wrapper">
+		<header class="vt-page__header">
+			<div class="vt-branding">
+				<?php the_custom_logo(); ?>
+			</div>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<nav class="vt-nav vt-nav--main">
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'vakkertech' ); ?></button>
 				<?php
-			else :
+				wp_nav_menu( array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'primary-menu',
+				) );
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$vakkertech_description = get_bloginfo( 'description', 'display' );
-			if ( $vakkertech_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $vakkertech_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'vakkertech' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+			</nav>
+		</header>

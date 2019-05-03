@@ -1,0 +1,12 @@
+// Boostrap 4 Variables for overriding Sass during compilation
+// **note: how will this work with webpack4?
+
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+// COMPLETE LIST OF ALL BOOTSTRAP 4.3 VARIABLES
+//   https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
+$border-radius: 0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+
