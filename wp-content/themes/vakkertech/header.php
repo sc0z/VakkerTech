@@ -16,17 +16,17 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/vakkertech/assets/build/icons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/wp-content/themes/vakkertech/assets/build/icons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="194x194" href="/wp-content/themes/vakkertech/assets/build/icons/favicon-194x194.png">
-	<link rel="icon" type="image/png" sizes="192x192" href="/wp-content/themes/vakkertech/assets/build/icons/android-chrome-192x192.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/wp-content/themes/vakkertech/assets/build/icons/favicon-16x16.png">
-	<link rel="manifest" href="/wp-content/themes/vakkertech/assets/build/icons/site.webmanifest">
-	<link rel="mask-icon" href="/wp-content/themes/vakkertech/assets/build/icons/safari-pinned-tab.svg" color="#5bbad5">
-	<link rel="shortcut icon" href="/wp-content/themes/vakkertech/assets/build/icons/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/vakkertech/assets/dist/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/wp-content/themes/vakkertech/assets/dist/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="194x194" href="/wp-content/themes/vakkertech/assets/dist/icons/favicon-194x194.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/wp-content/themes/vakkertech/assets/dist/icons/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/wp-content/themes/vakkertech/assets/dist/icons/favicon-16x16.png">
+	<link rel="manifest" href="/wp-content/themes/vakkertech/assets/dist/icons/site.webmanifest">
+	<link rel="mask-icon" href="/wp-content/themes/vakkertech/assets/dist/icons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/wp-content/themes/vakkertech/assets/dist/icons/favicon.ico">
 	<meta name="msapplication-TileColor" content="#2b5797">
-	<meta name="msapplication-TileImage" content="/wp-content/themes/vakkertech/assets/build/icons/mstile-144x144.png">
-	<meta name="msapplication-config" content="/wp-content/themes/vakkertech/assets/build/icons/browserconfig.xml">
+	<meta name="msapplication-TileImage" content="/wp-content/themes/vakkertech/assets/dist/icons/mstile-144x144.png">
+	<meta name="msapplication-config" content="/wp-content/themes/vakkertech/assets/dist/icons/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
 	<?php wp_head(); ?>
 </head>

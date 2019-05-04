@@ -12,6 +12,8 @@
 
 const path = require('path'); // core Node.js module that gets used to manipulate file paths.
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     // entry: which module webpack should use to begin building out its internal dependency graph. 
@@ -26,15 +28,25 @@ module.exports = {
     },
     mode: 'development',
     module: {
-        rules: [{
-            test: /\.(scss)$/,
-            use: [
-                'style-loader', //Add exports of a module as style to DOM (creates style nodes from JS strings)
-                'css-loader', //Loads CSS file with resolved imports and returns CSS code (translates CSS into CommonJS)
-                'postcss-loader', //Loads and transforms a CSS/SSS file using PostCSS
-                'sass-loader' // Loads and compiles a SASS/SCSS file (compiles Sass to CSS)
-            ]
-        }]
+        rules: [
+            {
+                test: /\.(scss)$/,
+                use: [
+                    'style-loader', //Add exports of a module as style to DOM (creates style nodes from JS strings)
+                    'css-loader', //Loads CSS file with resolved imports and returns CSS code (translates CSS into CommonJS)
+                    'postcss-loader', //Loads and transforms a CSS/SSS file using PostCSS
+                    'sass-loader' // Loads and compiles a SASS/SCSS file (compiles Sass to CSS)
+                ]
+            },
+            {
+                test: /\.(jpe?g|png|gif)$/,
+                loader: 'url-loader',
+                options: {
+                    // Images larger than 10 KB won’t be inlined
+                    limit: 10 * 1024
+                }
+            }
+        ]
     },
     optimization: {
         minimizer: [
@@ -72,5 +84,24 @@ module.exports = {
             })
         ]
     },
-    
+    plugins: [
+        // Copy the images folder and optimize all the images from "build" to "dist"
+        new CopyPlugin(
+            [
+                {
+                    from: './assets/build/images',
+                    to: '../images',
+                },
+                {
+                    from: './assets/build/icons',
+                    to: '../icons',
+                },
+            ]
+        ),
+        new ImageminPlugin(
+            { 
+                test: /\.(jpe?g|png|gif|svg)$/i 
+            }
+        )
+    ]
 };
