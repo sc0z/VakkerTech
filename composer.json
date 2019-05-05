@@ -16,6 +16,7 @@
         }
     ],
     "require": {
+        "wpackagist-plugin/classic-editor":"1.4",
         "wpackagist-plugin/health-check":"1.2.6",
         "wpackagist-plugin/my-wp-health-check":"1.8.1"
     },

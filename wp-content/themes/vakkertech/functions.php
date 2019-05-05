@@ -22,6 +22,34 @@ function get_custom_logo_uri(){
 	return $image[0];
 }
 
+// Add WebPack4 Bundles
+function setup_frontend_bundle(){
+	wp_enqueue_script( 
+		'vakkertech-js', 
+		get_template_directory_uri() . '/dist/js/app.min.js', 
+		[
+			'jquery'
+		],
+		time(),
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'setup_frontend_bundle' );  
+
+// Add optional WP Admin WebPack4 Bundle
+function setup_backend_bundle(){
+	wp_enqueue_script( 
+		'vakkertech-admin-js', 
+		get_template_directory_uri() . '/dist/js/admin.min.js', 
+		[
+			'jquery'
+		],
+		time(),
+		true
+	);
+}
+add_action( 'admin_enqueue_scripts', 'setup_backend_bundle' );  
+
 function outputFavicons(){
 	$path = TEMPLATE_URI;
 
@@ -51,17 +79,6 @@ if ( ! function_exists( 'vakkertech_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function vakkertech_setup() {
-		// Setup JavaScript Bundle
-		wp_enqueue_script( 
-			'vakkertech-js', 
-			get_template_directory_uri() . '/dist/js/bundle.js', 
-			[
-				'jquery'
-			],
-			time(),
-			true
-		);
-
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
