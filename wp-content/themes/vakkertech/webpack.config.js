@@ -19,13 +19,13 @@ module.exports = {
     // entry: which module webpack should use to begin building out its internal dependency graph. 
     // webpack will figure out which other modules and libraries that entry point depends on (directly and indirectly).
     entry: {
-        app: './build/js/index.js',
-        admin: './build/js/admin.js'
+        app: './src/js/index.js',
+        admin: './src/js/admin.js'
     },
     // The output property tells webpack where to emit the bundles it creates and how to name these files
     output: {
         filename: '[name].min.js',
-        path: path.resolve(__dirname, 'dist/js',)
+        path: path.resolve(__dirname, 'dist/js')
     },
     mode: 'development',
     module: {
@@ -49,11 +49,12 @@ module.exports = {
             },
             {
                 test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'fonts',
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: '../fonts'
                     }
                 }]
             }
@@ -96,15 +97,15 @@ module.exports = {
         ],
     },
     plugins: [
-        // Copy the images folder and optimize all the images from "build" to "dist"
+        // Copy the images folder and optimize all the images from "src" to "dist"
         new CopyPlugin(
             [
                 {
-                    from: './build/images',
+                    from: './src/images',
                     to: '../images',
                 },
                 {
-                    from: './build/icons',
+                    from: './src/icons',
                     to: '../icons',
                 },
             ]

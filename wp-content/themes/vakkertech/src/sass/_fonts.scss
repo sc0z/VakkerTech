@@ -1,4 +1,4 @@
-$font-path: "/wp-content/themes/vakkertech/build/fonts";
+$font-path: "/wp-content/themes/vakkertech/dist/fonts";
 
 @font-face {
     font-family: 'RobotoCondensed-Bold';
@@ -7,7 +7,7 @@ $font-path: "/wp-content/themes/vakkertech/build/fonts";
          url($font-path + '/robotocondensed-bold-webfont.woff2') format('woff2'),
          url($font-path + '/robotocondensed-bold-webfont.woff') format('woff'),
          url($font-path + '/robotocondensed-bold-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-bold-webfont.svg#roboto_condensedbold') format('svg');
+         url($font-path + '/robotocondensed-bold-webfont.svg#RobotoCondensed-Bold') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -20,7 +20,7 @@ $font-path: "/wp-content/themes/vakkertech/build/fonts";
          url($font-path + '/robotocondensed-bolditalic-webfont.woff2') format('woff2'),
          url($font-path + '/robotocondensed-bolditalic-webfont.woff') format('woff'),
          url($font-path + '/robotocondensed-bolditalic-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-bolditalic-webfont.svg#roboto_condensedbold_italic') format('svg');
+         url($font-path + '/robotocondensed-bolditalic-webfont.svg#RobotoCondensed-Bold-Italic') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -33,7 +33,7 @@ $font-path: "/wp-content/themes/vakkertech/build/fonts";
          url($font-path + '/robotocondensed-italic-webfont.woff2') format('woff2'),
          url($font-path + '/robotocondensed-italic-webfont.woff') format('woff'),
          url($font-path + '/robotocondensed-italic-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-italic-webfont.svg#roboto_condenseditalic') format('svg');
+         url($font-path + '/robotocondensed-italic-webfont.svg#RobotoCondensed-Italic') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -46,7 +46,7 @@ $font-path: "/wp-content/themes/vakkertech/build/fonts";
          url($font-path + '/robotocondensed-light-webfont.woff2') format('woff2'),
          url($font-path + '/robotocondensed-light-webfont.woff') format('woff'),
          url($font-path + '/robotocondensed-light-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-light-webfont.svg#roboto_condensed_lightregular') format('svg');
+         url($font-path + '/robotocondensed-light-webfont.svg#RobotoCondensed-Light') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -59,7 +59,7 @@ $font-path: "/wp-content/themes/vakkertech/build/fonts";
          url($font-path + '/robotocondensed-lightitalic-webfont.woff2') format('woff2'),
          url($font-path + '/robotocondensed-lightitalic-webfont.woff') format('woff'),
          url($font-path + '/robotocondensed-lightitalic-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-lightitalic-webfont.svg#roboto_condensed_lightitalic') format('svg');
+         url($font-path + '/robotocondensed-lightitalic-webfont.svg#RobotoCondensed-Light-Italic') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -72,7 +72,7 @@ $font-path: "/wp-content/themes/vakkertech/build/fonts";
          url($font-path + '/robotocondensed-regular-webfont.woff2') format('woff2'),
          url($font-path + '/robotocondensed-regular-webfont.woff') format('woff'),
          url($font-path + '/robotocondensed-regular-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-regular-webfont.svg#roboto_condensedregular') format('svg');
+         url($font-path + '/robotocondensed-regular-webfont.svg#RobotoCondensed') format('svg');
     font-weight: normal;
     font-style: normal;
 
