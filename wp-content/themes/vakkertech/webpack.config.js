@@ -1,6 +1,8 @@
 /*
     Webpack 4 Config for WordPress Theme Development
 
+    Build: src -> dist folder (yarn buildya)
+
     Loaders
       Out of the box, webpack only understands JavaScript and JSON files. 
       Loaders allow webpack to process other types of files and convert them into valid modules 
@@ -14,6 +16,8 @@ const path = require('path'); // core Node.js module that gets used to manipulat
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
     // entry: which module webpack should use to begin building out its internal dependency graph. 
@@ -33,7 +37,7 @@ module.exports = {
             {
                 test: /\.(scss)$/,
                 use: [
-                    'style-loader', //Add exports of a module as style to DOM (creates style nodes from JS strings)
+                    MiniCssExtractPlugin.loader,
                     'css-loader', //Loads CSS file with resolved imports and returns CSS code (translates CSS into CommonJS)
                     'postcss-loader', //Loads and transforms a CSS/SSS file using PostCSS
                     'sass-loader' // Loads and compiles a SASS/SCSS file (compiles Sass to CSS)
@@ -115,6 +119,14 @@ module.exports = {
             { 
                 test: /\.(jpe?g|png|gif|svg)$/i 
             }
-        )
+        ),
+        new MiniCssExtractPlugin(
+            {
+                // Options similar to the same options in webpackOptions.output
+                // both options are optional
+                filename: '../css/[name].css',
+                chunkFilename: '../css/[id].css',
+            }
+          ),
     ]
 };

@@ -33,6 +33,13 @@ function setup_frontend_bundle(){
 		time(),
 		true
 	);
+	wp_enqueue_style(
+		'vakkertech-css',
+		get_template_directory_uri() . '/dist/css/app.css',
+		[],
+		time(),
+		'all'
+	);
 }
 add_action( 'wp_enqueue_scripts', 'setup_frontend_bundle' );  
 
