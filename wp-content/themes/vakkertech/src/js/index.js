@@ -11,10 +11,19 @@ import "bootstrap"; // include ALL of bootstrap4's js (do we need all of it?)
 // import '@fortawesome/free-solid-svg-icons';
 import "../sass/style.scss";
 
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+
+
 "use strict";
 
 (function($) {
 	$(function() {
 		console.log("Document Ready");
+		library.add(fas, far, fab) 
+		dom.i2svg() 
 	});
 })(jQuery);
+
