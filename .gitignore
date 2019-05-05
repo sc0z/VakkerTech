@@ -1,27 +1,6 @@
 # -----------------------------------------------------------------
-# .gitignore for WordPress @salcode for salferrarello.com example
-# ver 20170228
+# .gitignore for WordPress - based on @salcode for salferrarello.com example
 #
-# From the root of your project run
-# curl -O https://gist.githubusercontent.com/salcode/b515f520d3f8207ecd04/raw/.gitignore
-# to download this file
-#
-# By default all files are ignored.  You'll need to whitelist
-# any mu-plugins, plugins, or themes you want to include in the repo.
-#
-# To ignore uncommitted changes in a file that is already tracked, use 
-# git update-index --assume-unchanged
-#
-# To stop tracking a file that is currently tracked, use 
-# git rm --cached
-#
-# Change Log:
-# 20170228 Whitelist my theme (saltheme) and site specific plugin (salferrarello-com-mods)
-# 20160309 Added favicon files as whitelisted files
-# 20150302 Added composer.json as a whitelisted file
-# 20150227 Created as fork of https://gist.github.com/salcode/9940509,
-#   this version ignores all files by default
-# -----------------------------------------------------------------
 
 # ignore everything in the root except the "wp-content" directory.
 /*
@@ -44,12 +23,18 @@ wp-content/themes/*
 .*
 ~*
 
-# ignore node dependency directories
+# Node Package Manager Modules #
+######################
 node_modules/
 
 # ignore OS generated files
 ehthumbs.db
 Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 
 # ignore Editor files
 *.sublime-project
@@ -79,6 +64,10 @@ Thumbs.db
 *.tar
 *.zip
 
+# Sass cache #
+######################
+.sass-cache/
+
 # -------------------------
 # BEGIN Whitelisted Files
 # -------------------------
@@ -105,3 +94,4 @@ Thumbs.db
 #!wp-content/mu-plugins/example-mu-plugin/
 #!wp-content/plugins/vakker-tech-features/
 !wp-content/themes/vakkertech
+/vendor/
