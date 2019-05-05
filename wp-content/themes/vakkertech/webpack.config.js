@@ -17,7 +17,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
     // entry: which module webpack should use to begin building out its internal dependency graph. 
@@ -124,9 +124,17 @@ module.exports = {
             {
                 // Options similar to the same options in webpackOptions.output
                 // both options are optional
-                filename: '../css/[name].css',
-                chunkFilename: '../css/[id].css',
+                filename: '../css/[name].min.css',
+                chunkFilename: '../css/[id].min.css',
             }
-          ),
+        ),
+        new OptimizeCSSAssetsPlugin({
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorPluginOptions: {
+              preset: ['default', { discardComments: { removeAll: true } }],
+            },
+            canPrint: true
+        })
     ]
 };

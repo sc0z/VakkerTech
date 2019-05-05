@@ -35,7 +35,7 @@ function setup_frontend_bundle(){
 	);
 	wp_enqueue_style(
 		'vakkertech-css',
-		get_template_directory_uri() . '/dist/css/app.css',
+		get_template_directory_uri() . '/dist/css/app.min.css',
 		[],
 		time(),
 		'all'
