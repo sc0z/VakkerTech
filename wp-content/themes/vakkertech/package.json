@@ -2,7 +2,7 @@
   "name": "vakkertech",
   "version": "1.0.0",
   "description": "Custom WordPress theme for VakkerTech.com",
-  "main": "\"assets/build/js/vakkertech.js\"",
+  "main": "\"./build/js/vakkertech.js\"",
   "repository": "https://github.com/sc0z/VakkerTech",
   "author": "Stephen Scoza",
   "license": "MIT",

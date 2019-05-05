@@ -54,7 +54,7 @@ if ( ! function_exists( 'vakkertech_setup' ) ) :
 		// Setup JavaScript Bundle
 		wp_enqueue_script( 
 			'vakkertech-js', 
-			get_template_directory_uri() . '/assets/dist/js/bundle.js', 
+			get_template_directory_uri() . '/dist/js/bundle.js', 
 			[
 				'jquery'
 			],

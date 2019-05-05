@@ -19,14 +19,13 @@ module.exports = {
     // entry: which module webpack should use to begin building out its internal dependency graph. 
     // webpack will figure out which other modules and libraries that entry point depends on (directly and indirectly).
     entry: {
-        app: './assets/build/js/index.js'
+        app: './build/js/index.js',
+        admin: './build/js/admin.js'
     },
     // The output property tells webpack where to emit the bundles it creates and how to name these files
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'assets/dist/js',
-        
-    )
+        filename: '[name].min.js',
+        path: path.resolve(__dirname, 'dist/js',)
     },
     mode: 'development',
     module: {
@@ -54,7 +53,7 @@ module.exports = {
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: '../fonts'
+                        outputPath: 'fonts',
                     }
                 }]
             }
@@ -94,18 +93,18 @@ module.exports = {
                     return require('terser').minify(file, uglifyJsOptions);
                 },
             })
-        ]
+        ],
     },
     plugins: [
         // Copy the images folder and optimize all the images from "build" to "dist"
         new CopyPlugin(
             [
                 {
-                    from: './assets/build/images',
+                    from: './build/images',
                     to: '../images',
                 },
                 {
-                    from: './assets/build/icons',
+                    from: './build/icons',
                     to: '../icons',
                 },
             ]
