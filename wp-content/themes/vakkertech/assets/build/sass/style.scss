@@ -11,17 +11,24 @@ Text Domain: vakkertech
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 */
 
+$vt-navbar-height: 60px; 
 
 // Bootstrap 4 Overrides
 @import "bootstrap-variables";
 // Bootstrap 4 Sass (Complete)
 @import "~bootstrap/scss/bootstrap";
+
 // VakkerTech color palette/branding colors
 @import "color-palette";
+@import "mixins";
+@import "fonts";
 
 html,
 body {
+    font-size: 16px;
     font-size: 1rem;
+    font-family: "RobotoCondensed", Arial, Helvetica, sans-serif;
+    font-weight: 400;
 }
 
 // VakkeTech Page <body> element
@@ -34,7 +41,7 @@ body {
 
     }
     &__content{
-
+        @include admin-content-fix();
     }
 
     &__footer{
@@ -42,12 +49,31 @@ body {
     }
 }
 
-.vt-nav{
+.vt-navbar{
+    @include admin-sticky-fix(); //fixed WP admin bar/sticky navbar overlap
+    padding: 0;
+    margin: 0;
     display: block;
+
+    height: $vt-navbar-height;
     width: 100%;
-    height: 2rem;
 
-    &--main{
+    background-color: $color-white;
+    border-bottom: 1px solid $color-dark;
+}
 
+// <a> wrapper for logo
+.vt-logo{
+    display: inline-block;
+
+    &__image{
+        display: inline-block;
+        width: 220px;
+        height: 50px;
     }
+}
+
+// ul for navbar-nav
+.vt-nav{
+    padding-top: 10px;
 }

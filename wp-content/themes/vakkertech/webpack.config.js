@@ -24,7 +24,9 @@ module.exports = {
     // The output property tells webpack where to emit the bundles it creates and how to name these files
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'assets/dist/js')
+        path: path.resolve(__dirname, 'assets/dist/js',
+        
+    )
     },
     mode: 'development',
     module: {
@@ -45,6 +47,16 @@ module.exports = {
                     // Images larger than 10 KB won’t be inlined
                     limit: 10 * 1024
                 }
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: '../fonts'
+                    }
+                }]
             }
         ]
     },
@@ -98,6 +110,7 @@ module.exports = {
                 },
             ]
         ),
+        // Optimizes all images
         new ImageminPlugin(
             { 
                 test: /\.(jpe?g|png|gif|svg)$/i 

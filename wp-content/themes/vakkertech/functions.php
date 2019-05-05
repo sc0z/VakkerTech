@@ -7,6 +7,41 @@
  * @package vakkertech
  */
 
+ define('TEMPLATE_URI', get_template_directory_uri());
+
+ add_action('get_header', 'my_filter_head');
+
+ function my_filter_head() {
+   remove_action('wp_head', '_admin_bar_bump_cb');
+ }
+
+ // Get URI for custom logo
+function get_custom_logo_uri(){
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+	return $image[0];
+}
+
+function outputFavicons(){
+	$path = TEMPLATE_URI;
+
+	$favicon_html = <<<HTML
+	<link rel="apple-touch-icon" sizes="180x180" href="$path/assets/dist/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="$path/assets/dist/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="194x194" href="$path/assets/dist/icons/favicon-194x194.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="$path/assets/dist/icons/android-chrome-192x192.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="$path/assets/dist/icons/favicon-16x16.png">
+	<link rel="manifest" href="$path/assets/dist/icons/site.webmanifest">
+	<link rel="mask-icon" href="$path/assets/dist/icons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="$path/assets/dist/icons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="msapplication-TileImage" content="$path/assets/dist/icons/mstile-144x144.png">
+	<meta name="msapplication-config" content="$path/assets/dist/icons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+HTML;
+	echo $favicon_html;
+}
+
 if ( ! function_exists( 'vakkertech_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -85,8 +120,8 @@ if ( ! function_exists( 'vakkertech_setup' ) ) :
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
 		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 100,
+			'width'       => 440,
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );

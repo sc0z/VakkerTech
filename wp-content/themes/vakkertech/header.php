@@ -16,35 +16,41 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/vakkertech/assets/dist/icons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/wp-content/themes/vakkertech/assets/dist/icons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="194x194" href="/wp-content/themes/vakkertech/assets/dist/icons/favicon-194x194.png">
-	<link rel="icon" type="image/png" sizes="192x192" href="/wp-content/themes/vakkertech/assets/dist/icons/android-chrome-192x192.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/wp-content/themes/vakkertech/assets/dist/icons/favicon-16x16.png">
-	<link rel="manifest" href="/wp-content/themes/vakkertech/assets/dist/icons/site.webmanifest">
-	<link rel="mask-icon" href="/wp-content/themes/vakkertech/assets/dist/icons/safari-pinned-tab.svg" color="#5bbad5">
-	<link rel="shortcut icon" href="/wp-content/themes/vakkertech/assets/dist/icons/favicon.ico">
-	<meta name="msapplication-TileColor" content="#2b5797">
-	<meta name="msapplication-TileImage" content="/wp-content/themes/vakkertech/assets/dist/icons/mstile-144x144.png">
-	<meta name="msapplication-config" content="/wp-content/themes/vakkertech/assets/dist/icons/browserconfig.xml">
-	<meta name="theme-color" content="#ffffff">
+	<?php outputFavicons(); ?>
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class('vt-page'); ?>>
 	<div class="vt-page__wrapper">
-		<header class="vt-page__header">
-			<div class="vt-branding">
-				<?php the_custom_logo(); ?>
+		<nav class="navbar navbar-expand-lg fixed-top navbar-light vt-navbar">
+			<div class="container-fluid">
+				<a class="vt-logo" href="<?php get_site_url(); ?>">
+					<img class="vt-logo__image" src="<?php echo get_custom_logo_uri(); ?>" alt="Vakker Tech Logo" title="Vakker Tech">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav vt-nav">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Portfolio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">About Us</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Contact Us</a>
+						</li>
+					</ul>
+			  	</div>
 			</div>
-
-			<nav class="vt-nav vt-nav--main">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'vakkertech' ); ?></button>
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-				?>
-			</nav>
-		</header>
+		</nav>
+			<?php
+			// wp_nav_menu( array(
+			// 	'theme_location' => 'menu-1',
+			// 	'menu_id'        => 'primary-menu',
+			// ) );
+			?>

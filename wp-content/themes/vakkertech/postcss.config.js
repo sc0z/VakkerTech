@@ -1,6 +1,7 @@
 module.exports = {
-    pulgins: [
-        require('precss'),
-        require('autoprefixer')
+    plugins: [
+        require('autoprefixer')({
+            'browsers': ['> 1%', 'last 2 versions']
+        })
     ]
-}
+};
