@@ -1,3 +1,5 @@
+$navbar-height: 60px;
+
 // Fix the WP admin bar interferring with the sticky navbar
 // https://www.sitepoint.com/getting-sticky-headers-wordpress-admin-bar-behave/
 @mixin admin-sticky-fix( $offset: 0 ) {
@@ -17,7 +19,6 @@
 
   // Fix content area padding when WP admin nav is there
   @mixin admin-content-fix( $offset: 0 ) {
-    $navbar-height: 120px;
     $narrow-offset: 46px;
     $wide-offset: 32px;
     @if $offset != 0 and type-of($offset) == 'number' {

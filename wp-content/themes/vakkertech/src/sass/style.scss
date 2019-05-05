@@ -29,13 +29,16 @@ body {
     font-size: 1rem;
     font-family: "RobotoCondensed", Arial, Helvetica, sans-serif;
     font-weight: 400;
+    height: 100%;
+    width: 100%;
 }
 
 // VakkeTech Page <body> element
 .vt-page{
     // Wrapper for all elements inside of vt-page
     &__wrapper{
-
+        height: 100%;
+        width: 100%;
     }
     &__header{
 

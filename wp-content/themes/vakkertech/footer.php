@@ -12,17 +12,7 @@
 ?>
 	<footer class="vt-page__footer">
 		<div class="vt-page__copyright">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'vakkertech' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'vakkertech' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'vakkertech' ), 'vakkertech', '<a href="https://vakkertech.com">Stephen Scoza</a>' );
-				?>
+			<small>&copy; 2019 VakkerTech.com. Powered by PHP <?php echo phpversion();?> and WordPress <?php bloginfo( 'version' ); ?></small>
 		</div>
 	</footer>
 </div><!-- .vt-wrapper -->
