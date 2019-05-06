@@ -21,7 +21,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-    // context: SourcePath,
+    context: __dirname,
     // entry: which module webpack should use to begin building out its internal dependency graph. 
     // webpack will figure out which other modules and libraries that entry point depends on (directly and indirectly).
     entry: {
@@ -37,6 +37,17 @@ module.exports = {
     mode: 'development',
     module: {
         rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        plugins: ['@babel/plugin-proposal-object-rest-spread']
+                    }
+                }
+            },
             {
                 test: /\.(scss)$/,
                 use: [
@@ -143,7 +154,10 @@ module.exports = {
                     { 
                         discardComments: { 
                             removeAll: true 
-                        } 
+                        },
+                        map: {
+                            inline: false // set to false if you want CSS source maps
+                        }
                     }
                 ],
             },
