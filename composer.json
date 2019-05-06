@@ -22,7 +22,8 @@
         "wpackagist-plugin/flamingo":"1.9",
         "wpackagist-plugin/health-check":"1.2.6",
         "wpackagist-plugin/my-wp-health-check":"1.8.1",
-        "wpackagist-plugin/wordfence":"7.2.5"
+        "wpackagist-plugin/php-compatibility-checker":"1.4.7",
+        "wpackagist-plugin/wp-migrate-db":"1.0.11"
     },
     "extra": {
         "installer-paths": {
