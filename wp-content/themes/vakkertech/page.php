@@ -15,12 +15,12 @@
 get_header();
 ?>
 
-	<main class="vt-page__content">
-        <section class="vt-hero">
-            <h2><?php the_title(); ?></h2>
-            <i class="fas fa-cat"></i>
-        </section>
-    </main>
+<main class="vt-page__content">
+    <section class="vt-hero">
+        <h2><?php the_title(); ?></h2>
+        <i class="fas fa-cat"></i>
+    </section>
+</main>
 
 <?php
 get_footer();

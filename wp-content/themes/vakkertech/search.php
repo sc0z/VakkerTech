@@ -16,12 +16,7 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'vakkertech' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
+				<h1 class="page-title">Search Results for: <?php echo get_search_query(); ?> </h1>
 			</header><!-- .page-header -->
 
 			<?php
@@ -51,5 +46,4 @@ get_header();
 	</section><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

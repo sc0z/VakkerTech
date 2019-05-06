@@ -28,13 +28,13 @@ module.exports = {
         app: path.resolve(__dirname, 'src/js/index.js'), // bundle for frontend of website
         admin: path.resolve(__dirname, 'src/js/admin.js') // bundle for /wp-admin only
     },
-    devtool: 'source-map',
     // The output property tells webpack where to emit the bundles it creates and how to name these files
     output: {
         filename: 'js/[name].min.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: 'dist/'
     },
-    mode: 'development',
+    mode: 'production',
     module: {
         rules: [
             {
@@ -51,10 +51,27 @@ module.exports = {
             {
                 test: /\.(scss)$/,
                 use: [
-                    MiniCssExtractPlugin.loader, // alt: use style-loader to load inline-css via the bundle JS
-                    'css-loader', //Loads CSS file with resolved imports and returns CSS code (translates CSS into CommonJS)
-                    'postcss-loader', //Loads and transforms a CSS/SSS file using PostCSS
-                    'sass-loader' // Loads and compiles a SASS/SCSS file (compiles Sass to CSS)
+                    // Extracts CSS from bundles' JS into minified CSS files in dist/css
+                    // alt: use 'style-loader' instead to load inline-css via the bundle JS
+                    MiniCssExtractPlugin.loader, 
+                    //Loads CSS file with resolved imports and returns CSS code (translates CSS into CommonJS)
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: false
+                        }
+                    },
+                    //Loads and transforms a CSS/SSS file using PostCSS
+                    {
+                        loader: 'postcss-loader'
+                    },
+                    // Loads and compiles a SASS/SCSS file (compiles Sass to CSS)
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: false
+                        }
+                    },
                 ]
             },
             {
@@ -65,18 +82,14 @@ module.exports = {
                     limit: 10 * 1024
                 }
             },
-            {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: path.resolve(__dirname, 'dist/fonts')
-                        }
-                    }
-                ]
-            }
+            // {
+            //     test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+            //     loader: 'file-loader',
+            //     options: {
+            //         name: '[name].[ext]',
+            //         outputPath: 'dist/fonts'
+            //     }
+            // }
         ]
     },
     optimization: {
@@ -129,9 +142,14 @@ module.exports = {
                     from: path.resolve(__dirname, 'src/icons'),
                     to: path.resolve(__dirname, 'dist/icons')
                 },
+                // Copy all fonts from src to dist (todo: remove this and use file-loader like before)
+                {
+                    from: path.resolve(__dirname, 'src/fonts'),
+                    to: path.resolve(__dirname, 'dist/fonts')
+                },
             ]
         ),
-        // Optimizes all images
+        // Optimizes all images (shrink size of files)
         new ImageminPlugin(
             { 
                 test: /\.(jpe?g|png|gif|svg)$/i 
@@ -152,12 +170,7 @@ module.exports = {
                 preset: [
                     'default', 
                     { 
-                        discardComments: { 
-                            removeAll: true 
-                        },
-                        map: {
-                            inline: false // set to false if you want CSS source maps
-                        }
+                        discardComments: { removeAll: true }
                     }
                 ],
             },
