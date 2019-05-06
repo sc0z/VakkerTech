@@ -4,7 +4,7 @@ This is the WordPress v.5.1.1 project for VakkerTech.com
 This is a re-write of our previous website.
 Designed on Windows 10 using VS Code + XAMPP
 
-# Setup
+## Setup
 
 - Using Composer + WPackagist to manage all plugins
 - Using WebPack 4 to manage and bundle all theme assets (fonts, images, css/sass, javascript)
