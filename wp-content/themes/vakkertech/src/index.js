@@ -5,7 +5,7 @@
 import "jquery"; // required to build Bootstrap 4
 import "popper.js"; // include popper.js for bootstrap4 (do we need this?)
 import "bootstrap"; // include ALL of bootstrap4's js (do we need all of it?)
-import "../sass/style.scss"; // import Sass to be compiled/extracted/minified
+import "./sass/style.scss"; // import Sass to be compiled/extracted/minified
 
 // Import FontAwesome 5 Free SVG Icons
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
@@ -22,7 +22,9 @@ const multiplyES6 = (x, y) => { return x * y };
 	$(function() {
 		console.log("Document Ready");
 		console.log("ES6 + babel is working" + multiplyES6(3,7));
+		
 		// Setup all SVG fontawesome icons
+		// todo: chunk/optimize this function
 		library.add(fas, far, fab);
 		dom.i2svg(); 
 	});

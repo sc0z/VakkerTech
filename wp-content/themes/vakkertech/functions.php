@@ -7,13 +7,15 @@
  * @package vakkertech
  */
 
- define('TEMPLATE_URI', get_template_directory_uri());
+define( 'TEMPLATE_DIR', get_template_directory() );
+define( 'TEMPLATE_URI', get_template_directory_uri() );
+define( 'ASSETS_URI', get_template_directory_uri() . '/dist' );
+define( 'ASSETS_DIR', get_template_directory() . '/dist' );
+// add_action('get_header', 'my_filter_head');
 
- add_action('get_header', 'my_filter_head');
-
- function my_filter_head() {
-   remove_action('wp_head', '_admin_bar_bump_cb');
- }
+//  function my_filter_head() {
+//    remove_action('wp_head', '_admin_bar_bump_cb');
+//  }
 
  // Get URI for custom logo
 function get_custom_logo_uri(){
@@ -36,6 +38,34 @@ function setup_frontend_bundle(){
 	wp_enqueue_style(
 		'vakkertech-css',
 		get_template_directory_uri() . '/dist/css/app.min.css',
+		[],
+		time(),
+		'all'
+	);
+	wp_enqueue_style(
+		'roboto-woff',
+		get_template_directory_uri() . '/dist/woff.css',
+		[],
+		time(),
+		'all'
+	);
+	wp_enqueue_style(
+		'roboto-woff2',
+		get_template_directory_uri() . '/dist/woff2.css',
+		[],
+		time(),
+		'all'
+	);
+	wp_enqueue_style(
+		'roboto-eot',
+		get_template_directory_uri() . '/dist/eot.css',
+		[],
+		time(),
+		'all'
+	);
+	wp_enqueue_style(
+		'roboto-ttf',
+		get_template_directory_uri() . '/dist/ttf.css',
 		[],
 		time(),
 		'all'
@@ -87,17 +117,6 @@ if ( ! function_exists( 'vakkertech_setup' ) ) :
 	 */
 	function vakkertech_setup() {
 		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on vakkertech, use a find and replace
-		 * to change 'vakkertech' to the name of your theme in all the template files.
-		 */
-		load_theme_textdomain( 'vakkertech', get_template_directory() . '/languages' );
-
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
-
-		/*
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a
 		 * hard-coded <title> tag in the document head, and expect WordPress to
@@ -114,7 +133,7 @@ if ( ! function_exists( 'vakkertech_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'vakkertech' ),
+			'menu-primary' => esc_html__( 'Primary', 'vakkertech' ),
 		) );
 
 		/*
@@ -154,53 +173,22 @@ endif;
 add_action( 'after_setup_theme', 'vakkertech_setup' );
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function vakkertech_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'vakkertech_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'vakkertech_content_width', 0 );
-
-/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function vakkertech_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'vakkertech' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'vakkertech' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	// register_sidebar( array(
+	// 	'name'          => esc_html__( 'Sidebar', 'vakkertech' ),
+	// 	'id'            => 'sidebar-1',
+	// 	'description'   => esc_html__( 'Add widgets here.', 'vakkertech' ),
+	// 	'before_widget' => '<section id="%1$s" class="widget %2$s">',
+	// 	'after_widget'  => '</section>',
+	// 	'before_title'  => '<h2 class="widget-title">',
+	// 	'after_title'   => '</h2>',
+	// ) );
 }
 add_action( 'widgets_init', 'vakkertech_widgets_init' );
-
-/**
- * Enqueue scripts and styles.
- */
-function vakkertech_scripts() {
-	wp_enqueue_style( 'vakkertech-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'vakkertech-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'vakkertech-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'vakkertech_scripts' );
 
 /**
  * Implement the Custom Header feature.

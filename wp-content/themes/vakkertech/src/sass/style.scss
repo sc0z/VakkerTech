@@ -21,13 +21,13 @@ $vt-navbar-height: 60px;
 // VakkerTech color palette/branding colors
 @import "color-palette";
 @import "mixins";
-@import "fonts";
+// @import "fonts";
 
 html,
 body {
     font-size: 16px;
     font-size: 1rem;
-    font-family: "RobotoCondensed", Arial, Helvetica, sans-serif;
+    font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
     font-weight: 400;
     height: 100%;
     width: 100%;

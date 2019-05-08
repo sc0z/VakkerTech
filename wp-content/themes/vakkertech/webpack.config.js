@@ -12,21 +12,24 @@
       We feel this extension of the language is warranted as it allows developers to build a more accurate dependency graph.
 */
 
+// Node.js lib used for resolving paths
 const path = require('path');
+
+// Webpack Plugins
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const ImageminPlugin = require('imagemin-webpack-plugin').default
 const CopyPlugin = require('copy-webpack-plugin');
+const GoogleFontsPlugin = require('google-fonts-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     context: __dirname,
     // entry: which module webpack should use to begin building out its internal dependency graph. 
     // webpack will figure out which other modules and libraries that entry point depends on (directly and indirectly).
     entry: {
-        app: path.resolve(__dirname, 'src/js/index.js'), // bundle for frontend of website
-        admin: path.resolve(__dirname, 'src/js/admin.js') // bundle for /wp-admin only
+        app: './src/index.js', // bundle for frontend of website
+        admin: './src/admin.js' // bundle for /wp-admin only
     },
     // The output property tells webpack where to emit the bundles it creates and how to name these files
     output: {
@@ -74,22 +77,15 @@ module.exports = {
                     },
                 ]
             },
+            // grab all images to be optimized
             {
-                test: /\.(jpe?g|png|gif)$/,
-                loader: 'url-loader',
-                options: {
-                    // Images larger than 10 KB won’t be inlined
-                    limit: 10 * 1024
-                }
-            },
-            // {
-            //     test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-            //     loader: 'file-loader',
-            //     options: {
-            //         name: '[name].[ext]',
-            //         outputPath: 'dist/fonts'
-            //     }
-            // }
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                use: [
+                  {
+                    loader: "file-loader" // Or `url-loader` or your other loader
+                  }
+                ]
+            }
         ]
     },
     optimization: {
@@ -129,30 +125,10 @@ module.exports = {
         ],
     },
     plugins: [
-        // Copy the images folder and optimize all the images from "src" to "dist"
-        new CopyPlugin(
-            [
-                // Copy all images from src to dist (can remove this - WP uses media lib)
-                {
-                    from: path.resolve(__dirname, 'src/images'),
-                    to: path.resolve(__dirname, 'dist/images')
-                },
-                // Copy all icons from src to dist (todo: remove this and use a webpack favicon generator)
-                {
-                    from: path.resolve(__dirname, 'src/icons'),
-                    to: path.resolve(__dirname, 'dist/icons')
-                },
-                // Copy all fonts from src to dist (todo: remove this and use file-loader like before)
-                {
-                    from: path.resolve(__dirname, 'src/fonts'),
-                    to: path.resolve(__dirname, 'dist/fonts')
-                },
-            ]
-        ),
-        // Optimizes all images (shrink size of files)
-        new ImageminPlugin(
+        // Clean out /dist folder prior to every build (best practice)
+        new CleanWebpackPlugin(
             { 
-                test: /\.(jpe?g|png|gif|svg)$/i 
+                verbose: true
             }
         ),
         // Extract Minified CSS from bundle JS to a css file (instead of using style-loader to inline the css into the page head)
@@ -160,6 +136,43 @@ module.exports = {
             {
                 filename: 'css/[name].min.css',
                 chunkFilename: 'css/[id].min.css',
+            }
+        ),
+        // Webpack plugin that downloads fonts from Google Fonts and encodes them to base64.
+        // Supports various font formats, currently eot, ttf, woff and woff2.
+        new GoogleFontsPlugin(
+            {
+                // Defines which fonts and it's variants and subsets to download
+                fonts: [
+                    {
+                        // Sets the font family
+                        family: 'Roboto Condensed',
+                        // Sets the variants of the font family to download, note that not all fonts have the all the possible variants
+                        variants: [
+                            "300",
+                            "300i",
+                            "400",
+                            "400i",
+                            "700",
+                            "700i"
+                        ],
+                        // Sets the subsets, note that not all fonts are available in all subsets
+                        subsets: [
+                            'latin-ext'
+                        ]
+                    }
+                ],
+                // Specifies which formats to download
+                formats: [
+                    'eot',
+                    'ttf',
+                    'woff',
+                    'woff2'
+                ],
+                // Whether should encode to base64
+                encode: true,
+                // Whether FS caching should be checked before sending requests
+                cache: true
             }
         ),
         // Minify CSS extracted from bundle
@@ -176,11 +189,15 @@ module.exports = {
             },
             canPrint: true
         }),
-        // Clean out /dist folder prior to every build (best practice)
-        new CleanWebpackPlugin(
+        new CopyPlugin([
             { 
-                verbose: true
+                from: './src/icons', 
+                to: 'icons' 
+            },
+            { 
+                from: './src/images', 
+                to: 'images' 
             }
-        )
+        ]),
     ]
 };

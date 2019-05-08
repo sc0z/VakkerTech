@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "454f7788944381e896590bd2fdfe7587",
+    "content-hash": "64ef2bc2a5623b980a10acb7db3e0e4d",
     "packages": [
         {
             "name": "composer/installers",
@@ -207,66 +207,6 @@
             "homepage": "https://wordpress.org/plugins/flamingo/"
         },
         {
-            "name": "wpackagist-plugin/health-check",
-            "version": "1.2.6",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/health-check/",
-                "reference": "tags/1.2.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/health-check.1.2.6.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/health-check/"
-        },
-        {
-            "name": "wpackagist-plugin/my-wp-health-check",
-            "version": "1.8.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/my-wp-health-check/",
-                "reference": "tags/1.8.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/my-wp-health-check.1.8.1.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/my-wp-health-check/"
-        },
-        {
-            "name": "wpackagist-plugin/php-compatibility-checker",
-            "version": "1.4.7",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/php-compatibility-checker/",
-                "reference": "tags/1.4.7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/php-compatibility-checker.1.4.7.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/php-compatibility-checker/"
-        },
-        {
             "name": "wpackagist-plugin/wp-migrate-db",
             "version": "1.0.11",
             "source": {
@@ -285,6 +225,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-migrate-db/"
+        },
+        {
+            "name": "wpackagist-theme/twentynineteen",
+            "version": "1.4",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/twentynineteen/",
+                "reference": "1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/twentynineteen.1.4.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/twentynineteen/"
         }
     ],
     "packages-dev": [],

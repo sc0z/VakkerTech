@@ -1,79 +1,79 @@
-$font-path: "/wp-content/themes/vakkertech/dist/fonts";
+// $font-path: "/wp-content/themes/vakkertech/dist/fonts";
 
-@font-face {
-    font-family: 'RobotoCondensed-Bold';
-    src: url($font-path + '/robotocondensed-bold-webfont.eot');
-    src: url($font-path + '/robotocondensed-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url($font-path + '/robotocondensed-bold-webfont.woff2') format('woff2'),
-         url($font-path + '/robotocondensed-bold-webfont.woff') format('woff'),
-         url($font-path + '/robotocondensed-bold-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-bold-webfont.svg#RobotoCondensed-Bold') format('svg');
-    font-weight: normal;
-    font-style: normal;
+// @font-face {
+//     font-family: 'RobotoCondensed-Bold';
+//     src: url($font-path + '/robotocondensed-bold-webfont.eot');
+//     src: url($font-path + '/robotocondensed-bold-webfont.eot?#iefix') format('embedded-opentype'),
+//          url($font-path + '/robotocondensed-bold-webfont.woff2') format('woff2'),
+//          url($font-path + '/robotocondensed-bold-webfont.woff') format('woff'),
+//          url($font-path + '/robotocondensed-bold-webfont.ttf') format('truetype'),
+//          url($font-path + '/robotocondensed-bold-webfont.svg#RobotoCondensed-Bold') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
 
-}
+// }
 
-@font-face {
-    font-family: 'RobotoCondensed-Bold-Italic';
-    src: url($font-path + '/robotocondensed-bolditalic-webfont.eot');
-    src: url($font-path + '/robotocondensed-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url($font-path + '/robotocondensed-bolditalic-webfont.woff2') format('woff2'),
-         url($font-path + '/robotocondensed-bolditalic-webfont.woff') format('woff'),
-         url($font-path + '/robotocondensed-bolditalic-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-bolditalic-webfont.svg#RobotoCondensed-Bold-Italic') format('svg');
-    font-weight: normal;
-    font-style: normal;
+// @font-face {
+//     font-family: 'RobotoCondensed-Bold-Italic';
+//     src: url($font-path + '/robotocondensed-bolditalic-webfont.eot');
+//     src: url($font-path + '/robotocondensed-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+//          url($font-path + '/robotocondensed-bolditalic-webfont.woff2') format('woff2'),
+//          url($font-path + '/robotocondensed-bolditalic-webfont.woff') format('woff'),
+//          url($font-path + '/robotocondensed-bolditalic-webfont.ttf') format('truetype'),
+//          url($font-path + '/robotocondensed-bolditalic-webfont.svg#RobotoCondensed-Bold-Italic') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
 
-}
+// }
 
-@font-face {
-    font-family: 'RobotoCondensed-Italic';
-    src: url($font-path + '/robotocondensed-italic-webfont.eot');
-    src: url($font-path + '/robotocondensed-italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url($font-path + '/robotocondensed-italic-webfont.woff2') format('woff2'),
-         url($font-path + '/robotocondensed-italic-webfont.woff') format('woff'),
-         url($font-path + '/robotocondensed-italic-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-italic-webfont.svg#RobotoCondensed-Italic') format('svg');
-    font-weight: normal;
-    font-style: normal;
+// @font-face {
+//     font-family: 'RobotoCondensed-Italic';
+//     src: url($font-path + '/robotocondensed-italic-webfont.eot');
+//     src: url($font-path + '/robotocondensed-italic-webfont.eot?#iefix') format('embedded-opentype'),
+//          url($font-path + '/robotocondensed-italic-webfont.woff2') format('woff2'),
+//          url($font-path + '/robotocondensed-italic-webfont.woff') format('woff'),
+//          url($font-path + '/robotocondensed-italic-webfont.ttf') format('truetype'),
+//          url($font-path + '/robotocondensed-italic-webfont.svg#RobotoCondensed-Italic') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
 
-}
+// }
 
-@font-face {
-    font-family: 'RobotoCondensed-Light';
-    src: url($font-path + '/robotocondensed-light-webfont.eot');
-    src: url($font-path + '/robotocondensed-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url($font-path + '/robotocondensed-light-webfont.woff2') format('woff2'),
-         url($font-path + '/robotocondensed-light-webfont.woff') format('woff'),
-         url($font-path + '/robotocondensed-light-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-light-webfont.svg#RobotoCondensed-Light') format('svg');
-    font-weight: normal;
-    font-style: normal;
+// @font-face {
+//     font-family: 'RobotoCondensed-Light';
+//     src: url($font-path + '/robotocondensed-light-webfont.eot');
+//     src: url($font-path + '/robotocondensed-light-webfont.eot?#iefix') format('embedded-opentype'),
+//          url($font-path + '/robotocondensed-light-webfont.woff2') format('woff2'),
+//          url($font-path + '/robotocondensed-light-webfont.woff') format('woff'),
+//          url($font-path + '/robotocondensed-light-webfont.ttf') format('truetype'),
+//          url($font-path + '/robotocondensed-light-webfont.svg#RobotoCondensed-Light') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
 
-}
+// }
 
-@font-face {
-    font-family: 'RobotoCondensed-Light-Italic';
-    src: url($font-path + '/robotocondensed-lightitalic-webfont.eot');
-    src: url($font-path + '/robotocondensed-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url($font-path + '/robotocondensed-lightitalic-webfont.woff2') format('woff2'),
-         url($font-path + '/robotocondensed-lightitalic-webfont.woff') format('woff'),
-         url($font-path + '/robotocondensed-lightitalic-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-lightitalic-webfont.svg#RobotoCondensed-Light-Italic') format('svg');
-    font-weight: normal;
-    font-style: normal;
+// @font-face {
+//     font-family: 'RobotoCondensed-Light-Italic';
+//     src: url($font-path + '/robotocondensed-lightitalic-webfont.eot');
+//     src: url($font-path + '/robotocondensed-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+//          url($font-path + '/robotocondensed-lightitalic-webfont.woff2') format('woff2'),
+//          url($font-path + '/robotocondensed-lightitalic-webfont.woff') format('woff'),
+//          url($font-path + '/robotocondensed-lightitalic-webfont.ttf') format('truetype'),
+//          url($font-path + '/robotocondensed-lightitalic-webfont.svg#RobotoCondensed-Light-Italic') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
 
-}
+// }
 
-@font-face {
-    font-family: 'RobotoCondensed';
-    src: url($font-path + '/robotocondensed-regular-webfont.eot');
-    src: url($font-path + '/robotocondensed-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url($font-path + '/robotocondensed-regular-webfont.woff2') format('woff2'),
-         url($font-path + '/robotocondensed-regular-webfont.woff') format('woff'),
-         url($font-path + '/robotocondensed-regular-webfont.ttf') format('truetype'),
-         url($font-path + '/robotocondensed-regular-webfont.svg#RobotoCondensed') format('svg');
-    font-weight: normal;
-    font-style: normal;
+// @font-face {
+//     font-family: 'RobotoCondensed';
+//     src: url($font-path + '/robotocondensed-regular-webfont.eot');
+//     src: url($font-path + '/robotocondensed-regular-webfont.eot?#iefix') format('embedded-opentype'),
+//          url($font-path + '/robotocondensed-regular-webfont.woff2') format('woff2'),
+//          url($font-path + '/robotocondensed-regular-webfont.woff') format('woff'),
+//          url($font-path + '/robotocondensed-regular-webfont.ttf') format('truetype'),
+//          url($font-path + '/robotocondensed-regular-webfont.svg#RobotoCondensed') format('svg');
+//     font-weight: normal;
+//     font-style: normal;
 
-}
+// }

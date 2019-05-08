@@ -1,8 +1,9 @@
 {
     "name": "stephen/vakkertech.com",
-    "description": "Custom WP Theme",
+    "description": "Custom WP Theme for VakkerTech.com",
     "type": "project",
     "license": "MIT",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "sc0z",
@@ -20,10 +21,8 @@
         "wpackagist-plugin/cmb2":"2.6.0",
         "wpackagist-plugin/contact-form-7":"5.1.1",
         "wpackagist-plugin/flamingo":"1.9",
-        "wpackagist-plugin/health-check":"1.2.6",
-        "wpackagist-plugin/my-wp-health-check":"1.8.1",
-        "wpackagist-plugin/php-compatibility-checker":"1.4.7",
-        "wpackagist-plugin/wp-migrate-db":"1.0.11"
+        "wpackagist-plugin/wp-migrate-db":"1.0.11",
+        "wpackagist-theme/twentynineteen":"1.4"
     },
     "extra": {
         "installer-paths": {
