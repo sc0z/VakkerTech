@@ -37,12 +37,16 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: 'dist/'
     },
+    // Adding jQuery as external library (included in WordPress)
+    externals: {
+        jquery: 'jQuery'
+    },
     mode: 'production',
     module: {
         rules: [
             {
                 test: /\.m?js$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {
@@ -198,6 +202,6 @@ module.exports = {
                 from: './src/images', 
                 to: 'images' 
             }
-        ]),
+        ])
     ]
 };

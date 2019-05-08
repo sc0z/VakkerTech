@@ -42,34 +42,6 @@ function setup_frontend_bundle(){
 		time(),
 		'all'
 	);
-	wp_enqueue_style(
-		'roboto-woff',
-		get_template_directory_uri() . '/dist/woff.css',
-		[],
-		time(),
-		'all'
-	);
-	wp_enqueue_style(
-		'roboto-woff2',
-		get_template_directory_uri() . '/dist/woff2.css',
-		[],
-		time(),
-		'all'
-	);
-	wp_enqueue_style(
-		'roboto-eot',
-		get_template_directory_uri() . '/dist/eot.css',
-		[],
-		time(),
-		'all'
-	);
-	wp_enqueue_style(
-		'roboto-ttf',
-		get_template_directory_uri() . '/dist/ttf.css',
-		[],
-		time(),
-		'all'
-	);
 }
 add_action( 'wp_enqueue_scripts', 'setup_frontend_bundle' );  
 

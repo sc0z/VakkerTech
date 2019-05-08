@@ -82,6 +82,7 @@ Thumbs.db
 !CHANGELOG.md
 !composer.json
 !composer.lock
+!.htaccess
 
 # track favicon files, if they exist
 !android-chrome-*.png
