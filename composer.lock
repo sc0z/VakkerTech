@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64ef2bc2a5623b980a10acb7db3e0e4d",
+    "content-hash": "31e1268a4f5329eab16b8d14c8f84028",
     "packages": [
         {
             "name": "composer/installers",
@@ -128,15 +128,15 @@
         },
         {
             "name": "wpackagist-plugin/classic-editor",
-            "version": "1.4",
+            "version": "1.5",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/classic-editor/",
-                "reference": "tags/1.4"
+                "reference": "tags/1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/classic-editor.1.4.zip",
+                "url": "https://downloads.wordpress.org/plugin/classic-editor.1.5.zip",
                 "reference": null,
                 "shasum": null
             },

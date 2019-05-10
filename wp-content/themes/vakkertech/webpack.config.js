@@ -17,7 +17,6 @@ const path = require('path');
 
 // Webpack Plugins
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 const GoogleFontsPlugin = require('google-fonts-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -36,10 +35,6 @@ module.exports = {
         filename: 'js/[name].min.js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: 'dist/'
-    },
-    // Adding jQuery as external library (included in WordPress)
-    externals: {
-        jquery: 'jQuery'
     },
     mode: 'production',
     module: {
@@ -79,15 +74,6 @@ module.exports = {
                             sourceMap: false
                         }
                     },
-                ]
-            },
-            // grab all images to be optimized
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                use: [
-                  {
-                    loader: "file-loader" // Or `url-loader` or your other loader
-                  }
                 ]
             }
         ]
@@ -192,16 +178,6 @@ module.exports = {
                 ],
             },
             canPrint: true
-        }),
-        new CopyPlugin([
-            { 
-                from: './src/icons', 
-                to: 'icons' 
-            },
-            { 
-                from: './src/images', 
-                to: 'images' 
-            }
-        ])
+        })
     ]
 };
