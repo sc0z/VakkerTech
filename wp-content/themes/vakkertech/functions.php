@@ -17,6 +17,48 @@ define('ASSETS_DIR', get_template_directory() . '/dist');
 //    remove_action('wp_head', '_admin_bar_bump_cb');
 //  }
 
+function remove_junk_from_wp_head()
+{
+	// Really Simple Discovery
+	remove_action('wp_head', 'rsd_link');
+	// Windows Live Writer
+	remove_action('wp_head', 'wlwmanifest_link');
+	// WordPress Generator (hide WP version for security)
+	// It can be considered a security risk to make your wordpress version visible and public
+	remove_action('wp_head', 'wp_generator');
+	remove_action('wp_head', 'wp_shortlink_wp_head'); //removes shortlink.
+	remove_action( 'wp_head', 'feed_links', 2 ); //removes feed links.
+	remove_action('wp_head', 'feed_links_extra', 3 );  //removes comments feed. 
+	// Post Relational Links
+	remove_action('wp_head', 'start_post_rel_link');
+	remove_action('wp_head', 'index_rel_link');
+	remove_action('wp_head', 'adjacent_posts_rel_link');
+	// Remove CSS for WP Admin bar
+	remove_action('wp_head', '_admin_bar_bump_cb');
+	//Remove the REST API endpoint.
+	remove_action('rest_api_init', 'wp_oembed_register_route');
+	// Turn off oEmbed auto discovery.
+	add_filter( 'embed_oembed_discover', '__return_false' );
+	//Don't filter oEmbed results.
+	remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10);
+	//Remove oEmbed discovery links.
+	remove_action('wp_head', 'wp_oembed_add_discovery_links');
+	//Remove oEmbed JavaScript from the front-end and back-end.
+	remove_action('wp_head', 'wp_oembed_add_host_js');
+}
+add_action('get_header', 'remove_junk_from_wp_head');
+
+// Disable XML-RPC
+add_filter( 'xmlrpc_enabled', '__return_false' );
+add_filter( 'pings_open', '__return_false', PHP_INT_MAX);
+
+// Disable X-Pingback header
+add_filter( 'wp_headers', 'disable_x_pingback' );
+function disable_x_pingback( $headers ) {
+    unset( $headers['X-Pingback'] );
+    return $headers;
+}
+
 // Get URI for custom logo
 function get_custom_logo_uri()
 {
@@ -43,7 +85,7 @@ function setup_frontend_bundle()
 		'all'
 	);
 }
-add_action('init', 'setup_frontend_bundle');
+add_action('wp_enqueue_scripts', 'setup_frontend_bundle');
 
 // Add optional WP Admin WebPack4 Bundle
 function setup_backend_bundle()
