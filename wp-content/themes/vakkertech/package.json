@@ -27,6 +27,7 @@
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^5.0.3",
     "gulp-minify": "^3.1.0",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.12.0",

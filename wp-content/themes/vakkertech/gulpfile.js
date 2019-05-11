@@ -2,7 +2,7 @@ const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
 const del = require('del');
 const gulp = require('gulp');
-const minify = require('gulp-minify');
+const imagemin = require('gulp-imagemin');
 const webpack = require('webpack');
 const gulpWebpack = require('webpack-stream');
 
@@ -55,10 +55,24 @@ gulp.task('minify:css', () => {
 gulp.task('clean:fonts', () => {
   return del([
     path.dist + 'eot.css',
-    path.dist +' ttf.css',
+    path.dist + 'ttf.css',
     path.dist + 'woff.css',
     path.dist + 'woff2.css'
   ]);
 });
 
-gulp.task('default', gulp.series('clean:dist', 'build:webpack', 'build:css', 'minify:css', 'clean:fonts'));
+// Optimize our images
+gulp.task('build:images', () =>
+    gulp.src(path.src + 'images/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest(path.dist + 'images'))
+);
+
+// Optimize our icons
+gulp.task('build:icons', () =>
+    gulp.src(path.src + 'icons/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest(path.dist + 'icons'))
+);
+
+gulp.task('default', gulp.series('clean:dist', 'build:webpack', 'build:css', 'minify:css', 'clean:fonts', 'build:images', 'build:icons'));
