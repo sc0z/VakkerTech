@@ -16,10 +16,8 @@
 const path = require('path');
 
 // Webpack Plugins
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const GoogleFontsPlugin = require('google-fonts-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
@@ -35,6 +33,10 @@ module.exports = {
         filename: 'js/[name].min.js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: 'dist/'
+    },
+    // Adding jQuery as external library
+    externals: {
+        jquery: 'jQuery'
     },
     mode: 'production',
     module: {
@@ -59,9 +61,7 @@ module.exports = {
                     //Loads CSS file with resolved imports and returns CSS code (translates CSS into CommonJS)
                     {
                         loader: 'css-loader',
-                        options: {
-                            sourceMap: false
-                        }
+                        options: { sourceMap: false }
                     },
                     //Loads and transforms a CSS/SSS file using PostCSS
                     {
@@ -70,9 +70,7 @@ module.exports = {
                     // Loads and compiles a SASS/SCSS file (compiles Sass to CSS)
                     {
                         loader: 'sass-loader',
-                        options: {
-                            sourceMap: false
-                        }
+                        options: { sourceMap: false }
                     },
                 ]
             }
@@ -115,12 +113,6 @@ module.exports = {
         ],
     },
     plugins: [
-        // Clean out /dist folder prior to every build (best practice)
-        new CleanWebpackPlugin(
-            { 
-                verbose: true
-            }
-        ),
         // Extract Minified CSS from bundle JS to a css file (instead of using style-loader to inline the css into the page head)
         new MiniCssExtractPlugin(
             {
@@ -164,20 +156,6 @@ module.exports = {
                 // Whether FS caching should be checked before sending requests
                 cache: true
             }
-        ),
-        // Minify CSS extracted from bundle
-        new OptimizeCSSAssetsPlugin({
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorPluginOptions: {
-                preset: [
-                    'default', 
-                    { 
-                        discardComments: { removeAll: true }
-                    }
-                ],
-            },
-            canPrint: true
-        })
+        )
     ]
 };
