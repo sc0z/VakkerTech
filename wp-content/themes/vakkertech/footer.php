@@ -10,14 +10,14 @@
  */
 
 ?>
-	<footer class="vt-page__footer">
-		<div class="vt-page__copyright">
-			<small>&copy; 2019 VakkerTech.com. Powered by PHP <?php echo phpversion();?> and WordPress <?php bloginfo( 'version' ); ?></small>
-		</div>
-	</footer>
-</div><!-- .vt-wrapper -->
+<footer class="vt-page__footer">
+	<div class="vt-copyright">
+		&copy; 2019 VakkerTech.com. Powered by PHP <?php echo phpversion(); ?> and WordPress <?php bloginfo('version'); ?>
+	</div>
+</footer>
 
 <?php wp_footer(); ?>
 
 </body>
+
 </html>

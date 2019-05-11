@@ -12,6 +12,9 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 */
 
 $vt-navbar-height: 60px; 
+$vt-admin-bar: 32px;
+$vt-admin-bar-mobile: 46px;
+$vt-footer-height: 40px;
 
 // Bootstrap 4 Overrides
 @import "bootstrap-variables";
@@ -35,21 +38,38 @@ body {
 
 // VakkeTech Page <body> element
 .vt-page{
-    // Wrapper for all elements inside of vt-page
-    &__wrapper{
-        height: 100%;
-        width: 100%;
-    }
+    min-height: 100%;
+
     &__header{
 
     }
     &__content{
         @include admin-content-fix();
+        min-height: calc(100vh - #{$vt-footer-height});
+
+        @media screen and (min-width: 783px) {
+            min-height: calc(100vh - #{$vt-footer-height});
+        }
+
+        background-color: $color-light;
     }
 
     &__footer{
+        height: $vt-footer-height;
+        padding: 0.625rem 0;
 
+        background-color: $color-dark;
+        color: $color-light;
+        text-align: center;
     }
+}
+
+.vt-copyright{
+    
+    margin: 0 auto;
+
+    font-size: 0.875rem;
+    line-height: 1.25rem;
 }
 
 .vt-navbar{

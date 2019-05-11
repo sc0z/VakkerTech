@@ -11,11 +11,6 @@ define('TEMPLATE_DIR', get_template_directory());
 define('TEMPLATE_URI', get_template_directory_uri());
 define('ASSETS_URI', get_template_directory_uri() . '/dist');
 define('ASSETS_DIR', get_template_directory() . '/dist');
-// add_action('get_header', 'my_filter_head');
-
-//  function my_filter_head() {
-//    remove_action('wp_head', '_admin_bar_bump_cb');
-//  }
 
 function remove_junk_from_wp_head()
 {
